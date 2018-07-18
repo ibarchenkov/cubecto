@@ -16,15 +16,16 @@ defmodule Cubecto.TypeTest do
 
     {:ok, _} = Postgrex.query(pid, "CREATE EXTENSION IF NOT EXISTS cube", [])
 
-    {:ok, _} =
-      Postgrex.query(pid, "CREATE TABLE cubes(id serial primary key, cube cube)", [])
+    {:ok, _} = Postgrex.query(pid, "CREATE TABLE cubes(id serial primary key, cube cube)", [])
 
     {:ok, _} = Repo.start_link()
     :ok
   end
 
   test "insert should work" do
-    assert %{cube: [1, 2.0, -3, 0.1234]} = Repo.insert!(%CubectoSchema{cube: [1, 2.0, -3, 0.1234]})
+    assert %{cube: [1, 2.0, -3, 0.1234]} =
+             Repo.insert!(%CubectoSchema{cube: [1, 2.0, -3, 0.1234]})
+
     assert %{cube: [1, 2, -3, 0.1234]} = Repo.one(CubectoSchema)
   end
 

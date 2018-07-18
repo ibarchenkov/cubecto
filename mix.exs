@@ -9,7 +9,10 @@ defmodule Cubecto.MixProject do
       start_permanent: Mix.env() == :prod,
       elixirc_paths: elixirc_paths(Mix.env()),
       deps: deps(),
-      docs: docs()
+      source_url: source_url(),
+      description: description(),
+      docs: docs(),
+      package: package()
     ]
   end
 
@@ -32,6 +35,10 @@ defmodule Cubecto.MixProject do
     ]
   end
 
+  defp description do
+    "Postgrex.Extension and Ecto.Type for PostgreSQL cube module"
+  end
+
   defp docs do
     [
       main: "readme",
@@ -42,6 +49,18 @@ defmodule Cubecto.MixProject do
   defp extras do
     [
       "README.md"
+    ]
+  end
+
+  defp source_url do
+    "https://github.com/ibarchenkov/cubecto"
+  end
+
+  defp package do
+    [
+      licenses: ["MIT"],
+      links: %{"GitHub" => source_url()},
+      maintainers: ["Igor Barchenkov"]
     ]
   end
 end
