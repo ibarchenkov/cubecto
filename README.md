@@ -75,6 +75,24 @@ defmodule MyApp.Accounts.User do
 end
 ```
 
+**Manipulate the field as a list**
+
+```elixir
+iex> user = MyApp.Repo.insert!(%MyApp.Accounts.User{cube: [1, 2, -3]})
+%MyApp.Accounts.User{
+  __meta__: #Ecto.Schema.Metadata<:loaded, "users">,
+  id: 1,
+  cube: [1, 2, -3]
+}
+
+iex> user |>  Ecto.Changeset.change(%{cube: [0.1, -0.2, 12.345, 123]}) |> Repo.update!()
+%MyApp.Accounts.User{
+  __meta__: #Ecto.Schema.Metadata<:loaded, "users">,
+  id: 1,
+  cube: [0.1, -0.2, 12.345, 123]
+}
+```
+
 [1]: http://hexdocs.pm/postgrex/Postgrex.Extension.html
 [2]: http://hexdocs.pm/ecto/Ecto.Type.html
 [3]: https://www.postgresql.org/docs/current/static/cube.html
