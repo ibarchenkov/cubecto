@@ -29,9 +29,9 @@ defmodule Cubecto.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:postgrex, ">= 0.13.2"},
-      {:ecto, ">= 2.1.0"},
-      {:ex_doc, "~> 0.18.0", only: :dev, runtime: false}
+      {:postgrex, ">= 0.15.0"},
+      {:ecto_sql, ">= 3.2.0"},
+      {:ex_doc, "~> 0.19.0", only: :dev, runtime: false}
     ]
   end
 
